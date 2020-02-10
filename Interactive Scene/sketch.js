@@ -4,6 +4,7 @@
 //
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
+let horizon = windowHeight * 0.8;
 let smileAnchor = 45;
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -13,6 +14,7 @@ function draw() {
   character(mouseX,mouseY);
   smile(mouseX,mouseY);
   smileChange();
+  valley();
 }
 function character (x,y){
   fill(255);
@@ -34,14 +36,14 @@ function smile(x,y){
 function smileChange(){
   if (keyIsPressed === true){
     if (keyCode === ENTER){
-      let smileAnchor = smileAnchor + 1;
-      return smileAnchor;
+      smileAnchor = smileAnchor + 0.2;
     }
     if (keyCode === BACKSPACE){
-      let smileAnchor = smileAnchor - 1;
-      return smileAnchor;
+      smileAnchor = smileAnchor - 0.2;
     }
   }
-  else return smileAnchor;
-
+}
+function valley(){
+  fill(0,255,0);
+  rect(0,horizon,windowWidth,windowHeight-horizon);
 }
