@@ -12,6 +12,7 @@ function draw() {
   background(100);
   character(mouseX,mouseY);
   smile(mouseX,mouseY);
+  smileChange();
 }
 function character (x,y){
   fill(255);
@@ -30,4 +31,17 @@ function character (x,y){
 function smile(x,y){
   bezier(x+15, y+40, x+20,y+smileAnchor, x+40,y+smileAnchor, x+45, y+40);
 }
+function smileChange(){
+  if (keyIsPressed === true){
+    if (keyCode === ENTER){
+      let smileAnchor = smileAnchor + 1;
+      return smileAnchor;
+    }
+    if (keyCode === BACKSPACE){
+      let smileAnchor = smileAnchor - 1;
+      return smileAnchor;
+    }
+  }
+  else return smileAnchor;
 
+}
