@@ -4,13 +4,11 @@
 //
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
-let horizon = windowHeight * 0.8;
 let smileAnchor = 45;
 function setup() {
   createCanvas(windowWidth, windowHeight);
 }
 function draw() {
-  background(100);
   character(mouseX,mouseY);
   smile(mouseX,mouseY);
   smileChange();
@@ -42,8 +40,4 @@ function smileChange(){
       smileAnchor = smileAnchor - 0.2;
     }
   }
-}
-function valley(){
-  fill(0,255,0);
-  rect(0,horizon,windowWidth,windowHeight-horizon);
 }
