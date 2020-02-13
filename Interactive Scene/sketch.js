@@ -4,15 +4,25 @@
 //
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
+let horizon;
 let smileAnchor = 45;
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  horizon = windowHeight * 0.8;
 }
 function draw() {
-  character(mouseX,mouseY);
-  smile(mouseX,mouseY);
-  smileChange();
+  background(100);
   valley();
+  if (mouseY < 300){
+    character(mouseX,mouseY);
+    smile(mouseX,mouseY);
+    smileChange();
+  }
+  else {
+    character(mouseX,300);
+    smile(mouseX,300);
+    smileChange();
+  }
 }
 function character (x,y){
   fill(255);
@@ -34,10 +44,13 @@ function smile(x,y){
 function smileChange(){
   if (keyIsPressed === true){
     if (keyCode === ENTER){
-      smileAnchor = smileAnchor + 0.2;
+      smileAnchor = smileAnchor + 1;
     }
     if (keyCode === BACKSPACE){
-      smileAnchor = smileAnchor - 0.2;
+      smileAnchor = smileAnchor - 1;
     }
   }
+}
+function valley(){
+  rect(0,horizon,windowWidth,windowHeight-horizon);
 }
