@@ -5,24 +5,29 @@
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
 let horizon;
+
 let smileAnchor = 45;
+let inconsolata;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   horizon = windowHeight * 0.8;
 }
 function draw() {
-  background(100);
+  background(51,153,255);
   valley();
-  if (mouseY < 300){
+
+  if (mouseY < horizon-185){
     character(mouseX,mouseY);
     smile(mouseX,mouseY);
     smileChange();
   }
   else {
-    character(mouseX,300);
-    smile(mouseX,300);
+    character(mouseX,horizon-185);
+    smile(mouseX,horizon-185);
     smileChange();
   }
+  text("Maheer", windowWidth - 100, windowHeight-50);
 }
 function character (x,y){
   fill(255);
@@ -52,5 +57,6 @@ function smileChange(){
   }
 }
 function valley(){
+  fill(0,153,76);
   rect(0,horizon,windowWidth,windowHeight-horizon);
 }
