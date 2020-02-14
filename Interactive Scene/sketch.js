@@ -5,18 +5,18 @@
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
 let horizon;
-
+let currentBack = 0;
 let smileAnchor = 45;
-let inconsolata;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   horizon = windowHeight * 0.8;
 }
 function draw() {
-  background(51,153,255);
-  valley();
-
+  backgroundImage();
+  
+  
+  strokeWeight(5);
   if (mouseY < horizon-185){
     character(mouseX,mouseY);
     smile(mouseX,mouseY);
@@ -27,7 +27,8 @@ function draw() {
     smile(mouseX,horizon-185);
     smileChange();
   }
-  text("Maheer", windowWidth - 100, windowHeight-50);
+  textSize(50);
+  text("Maheer", windowWidth - 200, windowHeight-50);
 }
 function character (x,y){
   fill(255);
@@ -57,6 +58,56 @@ function smileChange(){
   }
 }
 function valley(){
-  fill(0,153,76);
+  fill(106,190,69);
   rect(0,horizon,windowWidth,windowHeight-horizon);
+  fill(19,139,67);
+  triangle(200, horizon, 325, horizon-800, 400, horizon);
+  triangle(50, horizon, 200, horizon-700, 500, horizon);
+  triangle(200, horizon, 400, horizon-500, 600, horizon);
+}
+function clouds(x,y,size){
+  strokeWeight(0);
+  fill(255);
+  ellipse(x,y-size/1.5,size,size);
+  ellipse(x+size/3,y-size/3,size,size);
+  ellipse(x+size/1.5,y,size,size);
+  ellipse(x+size/3,y+size/3,size,size);
+  ellipse(x,y+size/1.5,size,size);
+  ellipse(x-size/3,y+size/3,size,size);
+  ellipse(x-size/1.5,y,size,size);
+  ellipse(x-size/3,y-size/3,size,size);
+  ellipse(x,y,size,size);
+  ellipse(x,y,size,size);
+}
+function backgroundImage(){
+  if (currentBack === 0){ //day
+    background(51,153,255);
+    valley();
+    clouds();
+  }
+  if (currentBack === 1){ //night
+    background(51,153,255);
+    valley();
+    clouds();
+  }
+  if (currentBack === 2){ //cloudy day
+    background(51,153,255);
+    valley();
+    clouds();
+  }
+  if (currentBack === 3){ //cloudy night
+    background(51,153,255);
+    valley();
+    clouds();
+  }
+}
+function timeOfDay(){
+  if (keyIsPressed === true){
+    if (keyCode === ENTER){
+      smileAnchor = smileAnchor + 1;
+    }
+    if (keyCode === BACKSPACE){
+      smileAnchor = smileAnchor - 1;
+    }
+  }
 }
