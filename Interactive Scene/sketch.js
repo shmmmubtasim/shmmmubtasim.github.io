@@ -14,6 +14,7 @@ function setup() {
 }
 horizon = windowHeight*0.8;
 function draw() {
+  backgroundChange3();
   backgroundImage();
   strokeWeight(5);
   if (mouseY < horizon-185){
@@ -27,7 +28,7 @@ function draw() {
   smileChange();
   textSize(50);
   text("Maheer", windowWidth - 200, windowHeight-50);
-  mousePressed();
+  
   print(windowWidth);
 }
 function character (x,y){
@@ -110,18 +111,74 @@ function backgroundImage(){
     clouds(windowWidth-460,140,50);
   }
 }
-function mousePressed(){
+
+function backgroundChange(){
   if (mouseIsPressed === true){
     if (mouseButton === LEFT){
-      if(currentBack < 3) {
-        currentBack = currentBack + 1;
+      if (currentBack === 0){
+        currentBack = 1;
+        return currentBack;
       }
-      else{
-        currentBack = 0
+      else if (currentBack === 1){
+        currentBack = 2;
+        return currentBack;
+      }
+      else if (currentBack === 2){
+        currentBack = 3;
+        return currentBack;
+      }
+      else if (currentBack === 3){
+        currentBack = 0;
+        return currentBack;    
+      }
+      return currentBack;
+    }
+    return currentBack;
+  }
+  return currentBack;
+}
+function backgroundChange2(){
+  if (currentBack === 0){
+    if (mouseIsPressed === true){
+      if (mouseButton === LEFT){
+        currentBack = 1;
       }
     }
-    else{
-      currentBack = currentBack
+  }
+  else if (currentBack === 1){
+    if (mouseIsPressed === true){
+      if (mouseButton === LEFT){
+        currentBack = 2;
+      }
+    }
+  }
+  else if (currentBack === 2){
+    if (mouseIsPressed === true){
+      if (mouseButton === LEFT){
+        currentBack = 3;
+      }
+    }
+  }
+  else if (currentBack === 3){
+    if (mouseIsPressed === true){
+      if (mouseButton === LEFT){
+        currentBack = 0;
+      }
+    }
+  }
+  return currentBack;
+}
+function backgroundChange3(){
+  if (mouseIsPressed === true){
+    if (mouseButton === LEFT){
+      if (currentBack<3){
+        currentBack = currentBack + 1;
+        return currentBack;
+      }
+      else{
+        currentBack = 0;
+        return currentBack;
+      }
     }
   }
 }
