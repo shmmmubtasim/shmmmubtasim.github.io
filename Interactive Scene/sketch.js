@@ -14,7 +14,7 @@ function setup() {
 }
 horizon = windowHeight*0.8;
 function draw() {
-  backgroundChange3();
+  //backgroundChange3();
   backgroundImage();
   strokeWeight(5);
   if (mouseY < horizon-185){
@@ -60,7 +60,7 @@ function smileChange(){
 } 
 function sun(){
   fill(251,171,24);
-  strokeWeight(.5);
+  strokeWeight(0.5);
   ellipse(windowWidth,0,250,250);
 }
 function valley(){
@@ -168,7 +168,7 @@ function backgroundChange2(){
   }
   return currentBack;
 }
-function backgroundChange3(){
+function mousePressed(){
   if (mouseIsPressed === true){
     if (mouseButton === LEFT){
       if (currentBack<3){
