@@ -22,6 +22,7 @@ function draw(){
   strokeWeight(3);
   line(400,0,400,800);
   line(0,400,800,400);
+  backgroundColour();
   renderQuadrant(); 
 }
 function findQuadrant(){
@@ -39,13 +40,23 @@ function findQuadrant(){
   }
 }
 
+function backgroundColour(){
+  fill('red');
+  rect(400,0,400,400);
+  fill('green');
+  rect(0,0,400,400);
+  fill('blue');
+  rect(0,400,400,400);
+  fill('yellow');
+  rect(400,400,400,400);
+}
 function renderQuadrant(){
   if (quadrant === 1){
     fill(0);
     q1fade = 255;
   }
   else {
-    fill(0,0,0, q1fade);
+    fill(100,100,200, q1fade);
     q1fade -= fadeSpeed;
   }
   rect(400,0,400,400);
