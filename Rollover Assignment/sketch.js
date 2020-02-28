@@ -16,6 +16,7 @@ function setup() {
 }
 
 function draw(){
+  if (quadrant !== 1) clear();
   background(255);
   strokeWeight(8);
   findQuadrant();
@@ -23,7 +24,14 @@ function draw(){
   line(400,0,400,800);
   line(0,400,800,400);
   backgroundColour();
-  renderQuadrant(); 
+  renderQuadrant();
+  if (quadrant === 1){
+    mousePressed();
+    
+   }
+  
+  
+   
 }
 function findQuadrant(){
   if (mouseX <= 400 && mouseY <= 400){
@@ -90,4 +98,12 @@ function renderQuadrant(){
     
   }
   rect(400,400,400,400);
+}
+
+function mousePressed() {
+  if (mouseButton === LEFT){
+    fill(0);
+    rect(0,0,800,800);
+    
+  }
 }
