@@ -10,6 +10,7 @@ let q2fade = 0;
 let q3fade = 0;
 let q4fade = 0;
 let fadeSpeed = 10; 
+let allBlack = false;
 
 function setup() {
   createCanvas(800,800);
@@ -25,11 +26,11 @@ function draw(){
   line(0,400,800,400);
   backgroundColour();
   renderQuadrant();
-  if (quadrant === 1){
-    mousePressed();
-    
-   }
-  
+  if (allBlack === true){
+    fill(0);
+    rect(0,0,800,800);
+  }
+  else return allBlack;
   
    
 }
@@ -101,9 +102,10 @@ function renderQuadrant(){
 }
 
 function mousePressed() {
-  if (mouseButton === LEFT){
-    fill(0);
-    rect(0,0,800,800);
-    
+  if (mouseButton === LEFT && quadrant === 1){
+    allBlack = true;
+     
   }
+  else allBlack = false;
 }
+
