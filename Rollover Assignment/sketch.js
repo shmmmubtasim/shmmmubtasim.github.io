@@ -37,16 +37,16 @@ function draw(){
    
 }
 function findQuadrant(){
-  if (mouseX <= 400 && mouseY <= 400){
+  if (mouseX < 400 && mouseY < 400){
     quadrant = 2;
   } 
-  if (mouseX >= 400 && mouseY <= 400){
+  if (mouseX > 400 && mouseY < 400){
     quadrant = 1;
   } 
-  if (mouseX <= 400 && mouseY >= 400){
+  if (mouseX < 400 && mouseY > 400){
     quadrant = 3;
   } 
-  if (mouseX >= 400 && mouseY >= 400){
+  if (mouseX > 400 && mouseY > 400){
     quadrant = 4;
   }
 }
@@ -92,11 +92,11 @@ function renderQuadrant(){
   }
   rect(0,400,400,400);
   if (quadrant === 4){
-    fill(0);
+    fill(lightSwitch);
     q4fade = 255;
   }
   else {
-    fill(0,0,0, q4fade);
+    fill(lightSwitch,lightSwitch,lightSwitch, q4fade);
     q4fade -= fadeSpeed;
     
   }
@@ -110,13 +110,13 @@ function mousePressed() {
   }
   if (quadrant === 4){
     if (lightSwitch === 0){
+      
       lightSwitch = 'yellow';
       
     }
-    if (lightSwitch === 'yellow'){
+    else if (lightSwitch === 'yellow'){
       lightSwitch = 0;
     }
-    return lightSwitch;
   }
 }
 
