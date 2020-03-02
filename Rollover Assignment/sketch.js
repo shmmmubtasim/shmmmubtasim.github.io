@@ -11,6 +11,8 @@ let q3fade = 0;
 let q4fade = 0;
 let fadeSpeed = 10; 
 let allBlack = false;
+let lightSwitch = 0;
+
 
 function setup() {
   createCanvas(800,800);
@@ -30,8 +32,8 @@ function draw(){
     fill(0);
     rect(0,0,800,800);
   }
-  else return allBlack;
-  
+  if (quadrant !== 1) allBlack = false;
+  print(lightSwitch);
    
 }
 function findQuadrant(){
@@ -102,10 +104,19 @@ function renderQuadrant(){
 }
 
 function mousePressed() {
-  if (mouseButton === LEFT && quadrant === 1){
+  if (quadrant === 1){
     allBlack = true;
      
   }
-  else allBlack = false;
+  if (quadrant === 4){
+    if (lightSwitch === 0){
+      lightSwitch = 'yellow';
+      
+    }
+    if (lightSwitch === 'yellow'){
+      lightSwitch = 0;
+    }
+    return lightSwitch;
+  }
 }
 
