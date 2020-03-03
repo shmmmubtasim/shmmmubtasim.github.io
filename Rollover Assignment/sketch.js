@@ -29,11 +29,12 @@ function draw(){
   backgroundColour();
   renderQuadrant();
   if (allBlack === true){
+    print("all");
     fill(0);
     rect(0,0,800,800);
   }
   if (quadrant !== 1) allBlack = false;
-  print(lightSwitch);
+  //print(lightSwitch);
    
 }
 function findQuadrant(){
@@ -93,13 +94,15 @@ function renderQuadrant(){
   rect(0,400,400,400);
   if (quadrant === 4){
     fill(lightSwitch);
-    q4fade = 255;
+    if(lightSwitch===false)q4fade = 255;
   }
   else {
-    fill(lightSwitch,lightSwitch,lightSwitch, q4fade);
+    fill(0,0,0, q4fade);
     q4fade -= fadeSpeed;
     
   }
+  //fill(255,0,0);
+  print("fill: ", lightSwitch, "  ", q4fade, "  ", quadrant);
   rect(400,400,400,400);
 }
 
@@ -112,6 +115,7 @@ function mousePressed() {
     if (lightSwitch === 0){
       
       lightSwitch = 'yellow';
+      q4fade=0;
       
     }
     else if (lightSwitch === 'yellow'){

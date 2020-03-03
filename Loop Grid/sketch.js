@@ -17,20 +17,25 @@ function setup() {
 function rectGrid(){
   for (let y = gridSpacing/2;y < height; y += gridSpacing){
     for (let x = gridSpacing/2; x < width; x += gridSpacing){
-      let randomR = random(255);
-      let randomG = random(255);
-      let randomB = random(255);
+      let randomR = random(250);
+      let randomG = random(50);
+      let randomB = random(75);
       
       fill(randomR, randomG, randomB);
       rect(x,y,gridSpacing,gridSpacing);
     }
   }
 }
-function draw() {
-
-  
-}
+function draw() {}
 function keyPressed(){
   rectGrid();
 }
-
+function mousePressed(){
+  if (mouseButton === LEFT){
+    gridSpacing = gridSpacing + 5;
+  }
+  if (mouseButton === RIGHT){
+    gridSpacing = gridSpacing - 5;
+  }
+  rectGrid();
+}
