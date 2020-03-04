@@ -3,7 +3,10 @@
 // Feb 27, 2020
 //
 // Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+// - the size of the squares change with mouse clicks
+// - the colours change with keyboard presses
+// - there is a colour scheme (red)
+// - only full squares are drawn (no squares "fall-off")
 let gridSpacing = 30;
 
 
@@ -15,14 +18,16 @@ function setup() {
 }
 
 function rectGrid(){
+  background(255);
   for (let y = gridSpacing/2;y < height; y += gridSpacing){
     for (let x = gridSpacing/2; x < width; x += gridSpacing){
       let randomR = random(250);
       let randomG = random(50);
       let randomB = random(75);
-      
-      fill(randomR, randomG, randomB);
-      rect(x,y,gridSpacing,gridSpacing);
+      if ((height-y) > (gridSpacing/2) && (width-x) > (gridSpacing/2)){
+        fill(randomR, randomG, randomB);
+        rect(x,y,gridSpacing,gridSpacing);
+      }
     }
   }
 }
