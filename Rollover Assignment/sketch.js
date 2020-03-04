@@ -29,12 +29,11 @@ function draw(){
   backgroundColour();
   renderQuadrant();
   if (allBlack === true){
-    print("all");
     fill(0);
     rect(0,0,800,800);
   }
   if (quadrant !== 1) allBlack = false;
-  //print(lightSwitch);
+  
    
 }
 function findQuadrant(){
@@ -101,8 +100,8 @@ function renderQuadrant(){
     q4fade -= fadeSpeed;
     
   }
-  //fill(255,0,0);
-  print("fill: ", lightSwitch, "  ", q4fade, "  ", quadrant);
+  
+  
   rect(400,400,400,400);
 }
 
