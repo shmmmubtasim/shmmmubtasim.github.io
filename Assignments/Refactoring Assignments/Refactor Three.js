@@ -1,17 +1,13 @@
 //Black and White Target
+let diameter;
 function setup() {
-createCanvas(400, 400);
+  createCanvas(400, 400);
+  diameter = 400;
 }
 function draw() {
-background(240);
-ellipse(200, 200, 400, 400);
-ellipse(200, 200, 360, 360);
-ellipse(200, 200, 320, 320);
-ellipse(200, 200, 280, 280);
-ellipse(200, 200, 240, 240);
-ellipse(200, 200, 200, 200);
-ellipse(200, 200, 160, 160);
-ellipse(200, 200, 120, 120);
-ellipse(200, 200, 80, 80);
-ellipse(200, 200, 40, 40);
+  background(240);
+  for (i = 0; i < 400; i + 40){
+    ellipse(200, 200, diameter, diameter);
+    diameter = diameter - 40;
+  }
 }
