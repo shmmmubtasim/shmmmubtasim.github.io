@@ -3,12 +3,15 @@
 // Refactor the following code. Be sure the refactored version:
 //  - is readable
 //  - is able to work easily with any canvas size
-let halfX = width/2;
-let halfY = height/2;
+let halfX;
+let halfY;
 
 function setup() {
   createCanvas(480, 270);
+  halfX = width/2;
+  halfY = height/2;
 }
+
 function draw() {
   background(255);
   stroke(0);
