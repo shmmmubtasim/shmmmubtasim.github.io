@@ -13,9 +13,11 @@ function checkerboard(){
       if (c === 0){
         c = 255;
       }
-      else c = 0;
-       fill(c);
-       rect(x,y,gridSpacing,gridSpacing);
+      else {
+        c = 0;
+        fill(c);
+        rect(x,y,gridSpacing,gridSpacing);
+      }
     }
   }
 }
