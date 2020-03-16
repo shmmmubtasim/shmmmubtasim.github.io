@@ -17,14 +17,14 @@ function setup() {
   rectGrid();
 }
 
-function rectGrid(){
+function rectGrid(){ //draw a grid of "rectangles" (they're squares really) in accordance to the window size
   background(255);
   for (let y = gridSpacing/2;y < height; y += gridSpacing){
-    for (let x = gridSpacing/2; x < width; x += gridSpacing){
+    for (let x = gridSpacing/2; x < width; x += gridSpacing){ //get a random colour within a red colour scheme and draw those squares
       let randomR = random(250);
       let randomG = random(50);
       let randomB = random(75);
-      if ((height-y) > (gridSpacing/2) && (width-x) > (gridSpacing/2)){
+      if ((height-y) > (gridSpacing/2) && (width-x) > (gridSpacing/2)){ //decide if there is enough space to draw all the rectangles without cutting them up and only draw them if they are not going to be cut
         fill(randomR, randomG, randomB);
         rect(x,y,gridSpacing,gridSpacing);
       }
@@ -32,10 +32,10 @@ function rectGrid(){
   }
 }
 function draw() {}
-function keyPressed(){
+function keyPressed(){ //if any key on the keyboard is pressed, refresh the grid
   rectGrid();
 }
-function mousePressed(){
+function mousePressed(){ // if the mouse is pressed, change the size of the sqauares depending on which button is clicked (leftclick to make the square bigger and rightclick to make them smaller)
   if (mouseButton === LEFT){
     gridSpacing = gridSpacing + 5;
   }
