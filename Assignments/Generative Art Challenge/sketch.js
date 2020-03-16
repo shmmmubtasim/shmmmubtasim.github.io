@@ -4,17 +4,34 @@
 //
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
-
-
+let hX1,hX2,vX1,vX2,hY1,hY2,vY1,vY2;
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(400, 400);
+  hX1 = random(100);
+  hY1 = random(100);
+  hX2 = (100,300);
+  hY2 = hY1;
+ 
 }
 
 function draw() {
-  background(220);
-  strokeWeight(5);
-  curvyLine(50,100,100,100);
+  generateArt();
 }
-function curvyLine(x1,y1,x2,y2){ // draws a curvy line
-  bezier(x1, y1,x1+(x1/10), y1+(y1/5), x1+(x1/9), y1-20,x1+35, y1+20, x2, y2);
+function horizontalLine(){
+  line(hX1,hY1,hX2,hY2);
+}
+function verticalLine(){
+  line(vX1,vY1,vX2,vY2);
+}
+function generateArt(){
+  horizontalLine();
+  vX1 = hX2;
+  vY1 = hY2;
+  vX2 = vX1;
+  vY2 = random(100,600);
+  verticalLine();
+  hX1 = vX2;
+  hY1 = vH2;
+  hX2 = (100,300);
+  hY2 = hY1;
 }
