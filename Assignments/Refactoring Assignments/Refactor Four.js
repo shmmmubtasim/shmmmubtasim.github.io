@@ -12,11 +12,11 @@ function checkerboard(){ //function that draws a black and a white square every 
   background(255);
   for (let y = 0;y <= height; y += gridSpacing){
     for (let x = 0; x <= width; x += gridSpacing){
-      if (colour === 0){
+      if (colour === 0){//  if the current square is black then set the colour to white
         colour = 255;
       }
       else {
-        colour = 0;
+        colour = 0; //if the current square is black then set the colour to white
         fill(colour);
         rect(x,y,gridSpacing,gridSpacing);
       }
