@@ -1,23 +1,26 @@
-let a,b,c,d;
+// Refactoring Assignment One
+// Maheer Mubtasim
+// March 13, 2020
+let x,y,xSpeed,ySpeed;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  a=200; b=300; 
-  c=random(3,8); 
-  d=random(3,8); 
+  x=200; y=300; 
+  xSpeed=random(3,8); 
+  ySpeed=random(3,8); 
 }
 function draw() { 
   squareGrid();
   background(80,80,80);
-  rect(a,b,250,75); 
+  rect(x,y,250,75); 
 }
-function squareGrid(){
-  a += c; 
-  b += d;
-  if (b>=height-75||b<=0){ 
-    d=d*-1;
+function squareGrid(){ //changes the direction of travel as the square hits the edge
+  x += xSpeed; 
+  y += ySpeed;
+  if (y>=height-75||y<=0){ //determines if the rectangle is touching the top or the bottom of the window
+    ySpeed=ySpeed*-1;
   }
-  if (a>=width-250||a<=0){ 
-    c=c*-1;
+  if (x>=width-250||x<=0){ //determines if the rectangle is touching either sides of the window
+    xSpeed=xSpeed*-1;
   }
 }

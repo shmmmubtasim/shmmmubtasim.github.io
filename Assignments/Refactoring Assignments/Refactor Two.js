@@ -3,6 +3,9 @@
 // Refactor the following code. Be sure the refactored version:
 //  - is readable
 //  - is able to work easily with any canvas size
+// Refactoring Assignment Two
+// Maheer Mubtasim
+// March 13, 2020
 let halfX;
 let halfY;
 
@@ -19,6 +22,10 @@ function draw() {
   line(0, halfY, width, halfY);
   noStroke();
   fill(0);
+  renderQuadrant();
+}
+
+function renderQuadrant(){ //determines the quadrant and draws a square accordingly
   if (mouseX < halfX && mouseY < halfY){
     rect(0,0,halfX,halfY);
   }

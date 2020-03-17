@@ -1,21 +1,23 @@
-//black and white
+// Refactoring Assignment Four
+// Maheer Mubtasim
+// March 13, 2020
 let gridSpacing = 75;
-let c = 0;
+let colour = 0;
 function setup() {
   createCanvas(600, 600);
   checkerboard();
 }
 
-function checkerboard(){
+function checkerboard(){ //function that draws a black and a white square every other square
   background(255);
   for (let y = 0;y <= height; y += gridSpacing){
     for (let x = 0; x <= width; x += gridSpacing){
-      if (c === 0){
-        c = 255;
+      if (colour === 0){
+        colour = 255;
       }
       else {
-        c = 0;
-        fill(c);
+        colour = 0;
+        fill(colour);
         rect(x,y,gridSpacing,gridSpacing);
       }
     }
